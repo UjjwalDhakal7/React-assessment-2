@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import './index.css'
+import Container from '../Components/Container';
+import Questions from '../Questions';
 
 const TaskFive: React.FC = () => {
   const [kelvin, setKelvin] = useState<string>('');
@@ -47,9 +50,22 @@ const TaskFive: React.FC = () => {
     }
   };
 
+  const Title = "5. Task: Convert Temperature";
+  const Question = ["This is an example question. What is the answer?"];
+  const Requirements = ["There should be 3 inputs for kelvin, celsius and fahrenheit\, even if one value of input changes then there should be change in other inputs.",
+                          "Display and input should be same",
+                          "Inputs should not be empty"];
+
+
   return (
+    < Container>
+    <Questions
+      title={Title}
+      question={Question}
+      requirements={Requirements}
+    />
     <div>
-      <h2>Task 5 : Convert Temperature</h2>
+      <h3>Enter temperature :</h3>
       <label>
         Kelvin:
         <input type="text" value={kelvin} onChange={handleKelvinChange} />
@@ -63,6 +79,7 @@ const TaskFive: React.FC = () => {
         <input type="text" value={fahrenheit} onChange={handleFahrenheitChange} />
       </label>
     </div>
+    </Container>
   );
 };
 

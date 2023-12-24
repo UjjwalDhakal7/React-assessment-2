@@ -9,7 +9,7 @@ export default function Home (){
                 <Navbar />
             </nav>
             <div className="main">
-                <span>Hiii</span>
+                <h1>React Assessment 2</h1>
             </div>
         </div>
         </>

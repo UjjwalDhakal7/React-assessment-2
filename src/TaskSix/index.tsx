@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import './index.css';
+import Container from '../Components/Container';
+import Questions from '../Questions';
 
 interface Tea {
   id: number;
@@ -45,11 +48,24 @@ const TeaMenuDisplay: React.FC = () => {
     });
     setSortedTea(sorted);
   };
+  const Title = "6. Task: Array Manipulation";
+  const Question = ["Build an application that lists all of the varieties of tea available in \"Your Friendly Neighborhood Tea Shop\". The customers should be able to filter the different types of tea within their price range."];
+  const Requirements = ["Customers should be able to see all of the varieties of tea available.",
+  "Customers should be able to see their title, price, description.",
+  "Customers should be able to filter them according to the price. \n a. Customers should be able to select the maximum price.\n b. Customers should be able to select the minimum price.\n c. Customers should be able to see the no. of varieties available after filtering.",
+  "Customers should be able to sort them according to the price \na. Customers should be able to sort from minimum to maximum.\nb. Customers should be able to sort from maximum to minimum."];
 
   return (
+    < Container>
+    <Questions
+      title={Title}
+      question={Question}
+      requirements={Requirements}
+    />
     <div>
-      <h1>Task Six</h1>
-      <div>s
+      <h3>Your Friendly Neighborhood Tea Shop</h3>
+      <div className='wrap'>
+        <div className='label'>
         <label>
           Min Price:
           <input type="number" value={minPrice} onChange={MaxPriceChange} />
@@ -59,12 +75,14 @@ const TeaMenuDisplay: React.FC = () => {
           <input type="number" value={maxPrice} onChange={MinPriceChange} />
         </label>
         <button onClick={filterTea}>Filter</button>
-      </div>
-      <div>
+        </div>
+        <div>
         <h4>Sort by Price</h4>
         <button onClick={() => sortTea('asc')}>Low to High</button>
         <button onClick={() => sortTea('desc')}>High to Low</button>
       </div>
+      </div>
+      
       <table>
         <thead>
           <tr>
@@ -84,6 +102,7 @@ const TeaMenuDisplay: React.FC = () => {
         </tbody>
       </table>
     </div>
+    </Container>
   );
 };
 
